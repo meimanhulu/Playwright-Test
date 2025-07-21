@@ -17,4 +17,5 @@ export class MenuPage {
             await this.menuLocatore.subMenu(subMenu).click();
 
         }
+        
 }

@@ -12,10 +12,12 @@ type Myfixtures = {
     logoutLocator: LogoutLocator;
     menuLocator: MenuLocator;
 
+
     //Page
     loginPage: LoginPage;
     logoutPage: LogoutPage;
     menuPage: MenuPage;
+    
 };
 
 export const test = base.extend<Myfixtures>({
