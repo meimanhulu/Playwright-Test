@@ -8,11 +8,11 @@ export class LogoutLocator {
     }
 
     btnDropDown(): Locator{
-        return this.page.locator('.oxd-userdropdown-tab');
+        return this.page.locator('button[data-testid="account-settings-menu-trigger"]');
     }
 
     btnLogout(Value: string): Locator{
-        return this.page.locator(`//a[text()='${Value}']`);
+        return this.page.locator(`//span[text()='${Value}']`);
     }
 
   

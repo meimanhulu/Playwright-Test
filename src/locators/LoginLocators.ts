@@ -7,15 +7,23 @@ export class LoginLocator {
         this.page = page;
     }
 
-    Username(): Locator {
-        return this.page.locator('input[name="username"]');
+    async btnLogin(): Promise<Locator> {
+         return this.page.locator('a[data-btn-type="start-free"]');
     }
 
-    Password(): Locator{
-        return this.page.locator('input[name="password"]');
+    async Username(): Promise<Locator> {
+        return this.page.locator('input[id="username"]');
     }
 
-    btnLogin(): Locator{
-        return this.page.locator('button[class*="orangehrm-login-button"]');
+    async btnContinue(): Promise<Locator> {
+        return this.page.locator('button[name="action"]');
+    }
+
+    async Password(): Promise<Locator> {
+        return this.page.locator('input[type="password"]');
+    }
+
+    async btnSignin(): Promise<Locator> {
+        return this.page.locator('button[type="submit"]');
     }
 }

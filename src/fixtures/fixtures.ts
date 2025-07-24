@@ -3,20 +3,20 @@ import { LoginLocator } from "../locators/LoginLocators";
 import { LoginPage } from "../pages/LoginPages";
 import { LogoutPage } from "../pages/LogoutPages";
 import { LogoutLocator } from "../locators/LogoutLocators";
-import { MenuLocator } from "../locators/MenuLocators";
-import { MenuPage } from "../pages/MenuPages";
+// import { MenuLocator } from "../locators/MenuLocators";
+// import { MenuPage } from "../pages/MenuPages";
 
 type Myfixtures = {
     //Locator
     loginLocator: LoginLocator;
     logoutLocator: LogoutLocator;
-    menuLocator: MenuLocator;
+    // menuLocator: MenuLocator;
 
 
     //Page
     loginPage: LoginPage;
     logoutPage: LogoutPage;
-    menuPage: MenuPage;
+    // menuPage: MenuPage;
     
 };
 
@@ -30,10 +30,10 @@ export const test = base.extend<Myfixtures>({
         const logoutLocator = new LogoutLocator(page);
         await use(logoutLocator);
     },
-    menuLocator: async ({ page }, use) => {
-        const menuLocator = new MenuLocator(page);
-        await use(menuLocator);
-    },
+    // menuLocator: async ({ page }, use) => {
+    //     const menuLocator = new MenuLocator(page);
+    //     await use(menuLocator);
+    // },
 
     //page
     loginPage: async ({page,loginLocator}, use) => {
@@ -44,8 +44,8 @@ export const test = base.extend<Myfixtures>({
         const logoutPage = new LogoutPage(page, logoutLocator);
         await use(logoutPage);
     },
-    menuPage: async ({page,menuLocator}, use) => {
-        const menuPage = new MenuPage(page, menuLocator);
-        await use(menuPage);
-    }
+    // menuPage: async ({page,menuLocator}, use) => {
+    //     const menuPage = new MenuPage(page, menuLocator);
+    //     await use(menuPage);
+    // }
 })
