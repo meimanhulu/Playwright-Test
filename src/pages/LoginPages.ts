@@ -1,5 +1,5 @@
 import type { Page } from "@playwright/test";
-import { LoginLocator } from "../locators/LoginLocators";
+import { LoginLocator } from "../locators/LoginLogoutLocators";
 
 export class LoginPage {
     private page: Page; // Merujuk ke tab yang aktif (newPage)
