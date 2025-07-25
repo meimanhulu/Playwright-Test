@@ -11,7 +11,7 @@ export class LogoutPage {
 
         }
 
-        async logout(Value: string){
+        async logout(Value: string,page: Page){
             await this.logoutLocator.btnDropDown().click();
             await this.logoutLocator.btnLogout(Value).click();
         }
