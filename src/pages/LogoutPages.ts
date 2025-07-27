@@ -3,30 +3,22 @@ import { LogoutLocator } from "../locators/LogoutLocators";
 
 export class LogoutPage {
     private page: Page;
-    public logoutLocator: LogoutLocator;
+    private LogoutLocator: LogoutLocator;
 
-    constructor(page: Page, logoutLocator: LogoutLocator) {
+    constructor(page: Page, LogoutLocator: LogoutLocator) {
         this.page = page;
-        this.logoutLocator = logoutLocator;
+        this.LogoutLocator = LogoutLocator;
     }
 
-    // Tunggu indikator login sukses terlihat
+    // Logout Process
     async waitForLoginSuccess(): Promise<void> {
-    await this.logoutLocator.waitForLoginSuccessVisible();
+        await this.LogoutLocator.btnDropDown.waitFor({ state: 'visible', timeout: 25000 });
     }
-
-    // Proses logout lengkap dengan pengecekan visibilitas
+    
     async logout(Value: string): Promise<void> {
-        // Tunggu dropdown profil (ikon akun) muncul
-        await this.logoutLocator.waitForDropDownVisible();
-
-        // Klik dropdown akun
-        await this.logoutLocator.btnDropDown().click();
-
-        // Tunggu tombol logout terlihat
-        await this.logoutLocator.waitForLogoutButtonVisible(Value);
-
-        // Klik tombol logout
-        await this.logoutLocator.btnLogout(Value).click();
+        await this.LogoutLocator.btnDropDown.waitFor({ state: 'visible', timeout: 25000 });
+        await this.LogoutLocator.btnDropDown.click();
+        await this.LogoutLocator.btnLogout.waitFor({ state: 'visible', timeout: 25000 });
+        await this.LogoutLocator.btnLogout.click();
     }
 }

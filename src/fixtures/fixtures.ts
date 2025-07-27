@@ -1,5 +1,5 @@
 import { test as base } from "@playwright/test";
-import { LoginLocator } from "../locators/LoginLogoutLocators";
+import { LoginLocator } from "../locators/LoginLocators";
 import { LoginPage } from "../pages/LoginPages";
 import { LogoutPage } from "../pages/LogoutPages";
 import { LogoutLocator } from "../locators/LogoutLocators";

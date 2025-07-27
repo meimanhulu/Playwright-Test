@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 
 export class DriverWaitHelper {
   private page: Page;
@@ -7,19 +7,46 @@ export class DriverWaitHelper {
     this.page = page;
   }
 
-  /**
-   * Waits for a specific event to occur.
-   * @param eventName - The name of the event to wait for.
-   * @param timeout - Time to wait before throwing an error, default is 30 seconds.
-   */
-  async waitForEvent(eventName: string, timeout: number = 30000): Promise<void> {
-    console.log(`Waiting for event: ${eventName}`);
-    try {
-      // Ensure the timeout is correctly used inside the options object
-      await this.page.waitForEvent(eventName, { timeout: timeout });
-      console.log(`Event ${eventName} occurred.`);
-    } catch (error) {
-      console.error(`Error waiting for event: ${eventName}`, error);
+  async waitForElement(selector: string, timeout: number = 30000): Promise<void> {
+    await this.page.locator(selector).waitFor({ state: 'attached', timeout });
+  }
+
+  async waitForElementToDisappear(selector: string, timeout: number = 30000): Promise<void> {
+    await this.page.locator(selector).waitFor({ state: 'detached', timeout });
+  }
+
+  async waitForElementVisible(selector: string, timeout: number = 30000): Promise<void> {
+    await this.page.locator(selector).waitFor({ state: 'visible', timeout });
+  }
+
+  async waitForElementNotVisible(selector: string, timeout: number = 30000): Promise<void> {
+    await this.page.locator(selector).waitFor({ state: 'hidden', timeout });
+  }
+
+  async waitForClickable(selector: string, timeout: number = 30000): Promise<void> {
+    const element = this.page.locator(selector);
+    await element.waitFor({ state: 'visible', timeout });
+    const isDisabled = await element.isDisabled();
+    if (isDisabled) {
+      throw new Error(`Element ${selector} is disabled.`);
     }
+  }
+
+  async waitForElementWithText(selector: string, text: string, timeout: number = 30000): Promise<void> {
+    const element = this.page.locator(selector);
+    await element.waitFor({ state: 'visible', timeout });
+    await element.locator(`text=${text}`).waitFor({ state: 'visible', timeout });
+  }
+
+  async waitForElementCondition(selector: string, condition: (el: Locator) => Promise<boolean>, timeout: number = 30000): Promise<void> {
+    const element = this.page.locator(selector);
+    const start = Date.now();
+    while (Date.now() - start < timeout) {
+      if (await condition(element)) {
+        return;
+      }
+      await this.page.waitForTimeout(500); // Tunggu setengah detik sebelum mengecek lagi
+    }
+    throw new Error(`Condition not met for element ${selector} within timeout`);
   }
 }
