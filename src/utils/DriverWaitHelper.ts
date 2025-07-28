@@ -45,7 +45,7 @@ export class DriverWaitHelper {
       if (await condition(element)) {
         return;
       }
-      await this.page.waitForTimeout(500); // Tunggu setengah detik sebelum mengecek lagi
+      await this.page.waitForTimeout(500);
     }
     throw new Error(`Condition not met for element ${selector} within timeout`);
   }

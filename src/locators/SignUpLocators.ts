@@ -12,6 +12,10 @@ export class SignUpLocator {
   lastName: Locator;
   codeField: Locator;
   numberField: Locator;
+  companyName: Locator;
+  companyDropDown: Locator;
+  sizeOption: Locator;
+
 
   constructor(page: Page) {
     
