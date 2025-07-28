@@ -24,11 +24,4 @@ export class LoginPage {
         await this.loginLocator.password.fill(password);
         await this.loginLocator.btnSignin.click();
     }
-
-    async waitForLoginSuccess(): Promise<void> {
-        await this.LogoutLocator.btnDropDown.waitFor({ state: 'visible', timeout: 25000 });
-    }
-    
-
-
 }
