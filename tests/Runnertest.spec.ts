@@ -10,10 +10,11 @@ test('After closing the second tab, proceed to log in via the first tab', async 
   const wait = new DriverWaitHelper(page);
   await page.goto(UrlHelper.website);
   await loginPage.clickLoginButton();
-
+  
   const newPage = await page.context().waitForEvent('page', { timeout: 10_000 });
   await newPage.close();
   await SleepHelper.sleepShort();
+
   await page.goto(UrlHelper.login);
   await loginPage.enterUsername(credentials.username);
   await loginPage.enterPassword(credentials.password);
