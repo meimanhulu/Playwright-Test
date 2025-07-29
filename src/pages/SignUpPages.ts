@@ -10,64 +10,37 @@ export class SignUpPage {
     this.signUpLocator = signUpLocator;
   }
 
-  // Step 1: Start Signup
-  async clickStartSignup(): Promise<void> {
-    await this.signUpLocator.btnStartSignup.click();
-  }
+  async enterFirstName(firstName: string): Promise<void> {
+        await this.signUpLocator.FIRSTNAME.fill(firstName);
+    }
 
-  // Step 2: Enter Email and Proceed
-  async enterEmail(email: string): Promise<void> {
-    await this.signUpLocator.inputEmail.fill(email);
-    await this.signUpLocator.btnsignUp.click();
-  }
+    async enterLastName(lastName: string): Promise<void> {
+        await this.signUpLocator.LASTNAME.fill(lastName);
+    }
 
-  // Step 3: Enter Username and Proceed
-  async enterUsername(username: string): Promise<void> {
-    await this.signUpLocator.inputUsername.fill(username);
-  }
+    async selectPhoneCode(): Promise<void> {
+        await this.signUpLocator.CODEPHONE.click();
+        // Optionally, add method to search or pick country code if dynamic
+    }
 
-  // Step 4: Enter Password and Proceed
-  async enterPassword(password: string): Promise<void> {
-    await this.signUpLocator.inputPassword.fill(password);
-    await this.signUpLocator.btnsignUp1.click();
-  }
+    async enterContactNumber(number: string): Promise<void> {
+        await this.signUpLocator.INPUTNUMBER.fill(number);
+    }
 
-  // Step 5: Enter Personal Details (First Name, Last Name)
-  async enterPersonalDetails(firstName: string, lastName: string): Promise<void> {
-    await this.signUpLocator.firstName.fill(firstName);
-    await this.signUpLocator.lastName.fill(lastName);
-  }
+    async enterCompanyName(companyName: string): Promise<void> {
+        await this.signUpLocator.COMPANYNAME.fill(companyName);
+    }
 
-  // Step 6: Enter Phone Number and Country Code
-  async enterPhoneNumber(phoneNumber: string, code: string): Promise<void> {
-    await this.signUpLocator.codeField.fill(code);
-    await this.signUpLocator.numberField.fill(phoneNumber);
-  }
+    async selectCompanySize(sizeOption: string): Promise<void> {
+        await this.signUpLocator.COMPANYSIZE.click();
+        await this.signUpLocator.SIZEOPTION.click();
+    }
 
-  // Step 7: Select Company Information (Name, Size, Industry)
-  async enterCompanyInfo(companyName: string, companySize: string, industryOption: string): Promise<void> {
-    await this.signUpLocator.companyName.fill(companyName);
-    await this.signUpLocator.companyDropDown.click();
-    await this.signUpLocator.sizeOption.click();
-    await this.signUpLocator.companyIndustry.click();
-    await this.signUpLocator.industryOption.click();
-  }
+    async clickCreateNow(): Promise<void> {
+        await this.signUpLocator.CREATENOW.click();
+    }
 
-  // Step 8: Set Time Zone
-  async setTimeZone(value: string): Promise<void> {
-    await this.signUpLocator.fieldTimeZone.fill(value);
-    await this.signUpLocator.btnNext1.click();
-  }
-
-  // Step 9: Choose Signup Channel
-  async selectSignupChannel(channel: string): Promise<void> {
-    await this.signUpLocator.signUpChannel.click();
-    await this.signUpLocator.btnNext2.click();
-  }
-
-  // Step 10: Agree to Terms and Proceed
-  async agreeToTermsAndProceed(): Promise<void> {
-    await this.signUpLocator.emptyCheck.check();
-    await this.signUpLocator.btnNext2.click();
-  }
+    async clickBack(): Promise<void> {
+        await this.signUpLocator.btnBack.click();
+    }
 }
