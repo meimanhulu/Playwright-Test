@@ -10,6 +10,26 @@ export class SignUpPage {
     this.signUpLocator = signUpLocator;
   }
 
+  async enterEmail(email: string): Promise<void> {
+    await this.signUpLocator.inputEmail.fill(email);
+  }
+
+  async clickSignUp(): Promise<void> {
+    await this.signUpLocator.btnsignUp.click();
+  }
+
+  async enterUsername(username: string): Promise<void> {
+    await this.signUpLocator.inputUsername.fill(username);
+  }
+
+  async enterPassword(password: string): Promise<void> {
+    await this.signUpLocator.inputPassword.fill(password);
+  }
+
+  async clickSignUp2(): Promise<void> {
+    await this.signUpLocator.btnsignUp1.click();
+  }
+
   async enterFirstName(firstName: string): Promise<void> {
         await this.signUpLocator.FIRSTNAME.fill(firstName);
     }
@@ -18,9 +38,10 @@ export class SignUpPage {
         await this.signUpLocator.LASTNAME.fill(lastName);
     }
 
-    async selectPhoneCode(): Promise<void> {
+    async selectPhoneCode(value: string): Promise<void> {
         await this.signUpLocator.CODEPHONE.click();
-        // Optionally, add method to search or pick country code if dynamic
+        await this.signUpLocator.CODESEARCH.fill(value);
+        await this.signUpLocator.CODESEARCH.press('Enter'); 
     }
 
     async enterContactNumber(number: string): Promise<void> {
@@ -31,9 +52,9 @@ export class SignUpPage {
         await this.signUpLocator.COMPANYNAME.fill(companyName);
     }
 
-    async selectCompanySize(sizeOption: string): Promise<void> {
+    async selectCompanySize(data: string): Promise<void> {
         await this.signUpLocator.COMPANYSIZE.click();
-        await this.signUpLocator.SIZEOPTION.click();
+        await this.page.locator(`//li[text()='${data}']`).click();
     }
 
     async clickCreateNow(): Promise<void> {
