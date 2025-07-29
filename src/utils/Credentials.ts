@@ -16,7 +16,9 @@ export const signupUsers = [
     companyName: "PT Automation",
     companySize: "1-19",
     companyIndustry: "Jewellery",
-    channel: "Facebook"
+    channel: "Facebook",
+    channel2: "Instagram",
+    channel3: "Line",
   },
   {
     email: "otomatuk2@gmail.com",
@@ -28,7 +30,9 @@ export const signupUsers = [
     companyName: "PT Uji Coba",
     companySize: "20-49",
     companyIndustry: "Skincare & Cosmetics",
-    channel: "Line"
+    channel: "WeChat",
+    channel2: "SMS",
+    channel3: "Telegram",
   },
   {
     email: "otomate12@gmail.com",
@@ -40,7 +44,9 @@ export const signupUsers = [
     companyName: "PT Uji Coba",
     companySize: "20-49",
     companyIndustry: "Platform Business",
-    channel: "Instagram"
+    channel: "WeChat",
+    channel2: "Facebook",
+    channel3: "Instagram",
   }
 
 ];

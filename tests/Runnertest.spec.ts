@@ -48,6 +48,8 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   await signupPage.enterCompanyName(user.companyName);
   await signupPage.selectCompanySize(user.companySize);
   await signupPage.clickChannel(user.channel);
+  await signupPage.clickChannel(user.channel2);
+  await signupPage.clickChannel(user.channel3);
   await signupPage.clickNext2();
   await signupPage.getStarted();
   
