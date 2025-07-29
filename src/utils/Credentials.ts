@@ -6,26 +6,41 @@ export const credentials = {
 };
 
 export const signupUsers = [
-  
-  users: {
-    email: "otomatis1@demo.com",
+  {
+    email: "otomatar1@gmail.com",
     username: "demoUser1",
     password: "DemoPass123!",
     firstName: "Sleek",
     lastName: "Flow",
-    phone: "812345678",
+    phoneNumber: "81712739122",
     companyName: "PT Automation",
-    companySize: "1-19"
+    companySize: "1-19",
+    companyIndustry: "Jewellery",
+    channel: "Facebook"
   },
   {
-    email: "otomatis2@demo.com",
+    email: "otomatuk2@gmail.com",
     username: "demoUser2",
     password: "DemoPass456!",
     firstName: "Auto",
     lastName: "Test",
-    phone: "812345679",
+    phoneNumber: "81891283711",
     companyName: "PT Uji Coba",
-    companySize: "20-49"
+    companySize: "20-49",
+    companyIndustry: "Skincare & Cosmetics",
+    channel: "Line"
+  },
+  {
+    email: "otomate12@gmail.com",
+    username: "userdemo1",
+    password: "DemoPass456!",
+    firstName: "Auto",
+    lastName: "Test",
+    phoneNumber: "81381236577",
+    companyName: "PT Uji Coba",
+    companySize: "20-49",
+    companyIndustry: "Platform Business",
+    channel: "Instagram"
   }
-  // able to add other user as a needed
+
 ];

@@ -9,6 +9,19 @@ export class SignUpPage {
     this.page = page;
     this.signUpLocator = signUpLocator;
   }
+  
+  async isErrorServerVisible(): Promise<boolean> {
+    try {
+      return await this.signUpLocator.ERROR_SERVER.isVisible({ timeout: 6000 });
+    } catch (e) {
+      console.log("Error occurred while checking ERROR_SERVER visibility:", e);
+      return false;
+    }
+  }
+
+  async startSignUp(): Promise<void>{
+    await this.signUpLocator.btnStartSignup.click();
+  }
 
   async enterEmail(email: string): Promise<void> {
     await this.signUpLocator.inputEmail.fill(email);
@@ -31,37 +44,56 @@ export class SignUpPage {
   }
 
   async enterFirstName(firstName: string): Promise<void> {
-        await this.signUpLocator.FIRSTNAME.fill(firstName);
+        await this.signUpLocator.firstName.fill(firstName);
     }
 
     async enterLastName(lastName: string): Promise<void> {
-        await this.signUpLocator.LASTNAME.fill(lastName);
+        await this.signUpLocator.lastName.fill(lastName);
     }
 
-    async selectPhoneCode(value: string): Promise<void> {
-        await this.signUpLocator.CODEPHONE.click();
-        await this.signUpLocator.CODESEARCH.fill(value);
-        await this.signUpLocator.CODESEARCH.press('Enter'); 
-    }
+    // async selectPhoneCode(value: string): Promise<void> {
+    //     await this.signUpLocator.CODEPHONE.click();
+    //     await this.signUpLocator.CODESEARCH.fill(value);
+    //     await this.signUpLocator.CODESEARCH.press('Enter'); 
+    // }
 
-    async enterContactNumber(number: string): Promise<void> {
-        await this.signUpLocator.INPUTNUMBER.fill(number);
+    async enterContactNumber(phoneNumber: string): Promise<void> {
+        await this.signUpLocator.numberField.fill(phoneNumber);
     }
 
     async enterCompanyName(companyName: string): Promise<void> {
-        await this.signUpLocator.COMPANYNAME.fill(companyName);
+        await this.signUpLocator.companyName.fill(companyName);
     }
 
     async selectCompanySize(data: string): Promise<void> {
-        await this.signUpLocator.COMPANYSIZE.click();
-        await this.page.locator(`//li[text()='${data}']`).click();
+        await this.signUpLocator.companyDropDown.click();
+        await this.page.locator(`//span[text()='${data}']`).click();
     }
 
-    async clickCreateNow(): Promise<void> {
-        await this.signUpLocator.CREATENOW.click();
+    async selectCompanyIndustry(option: string): Promise<void> {
+        await this.signUpLocator.companyIndustry.click();
+        await this.page.locator(`//span[text()='${option}']`).click();
     }
 
-    async clickBack(): Promise<void> {
-        await this.signUpLocator.btnBack.click();
+    async clickNext1(): Promise<void> {
+        await this.signUpLocator.btnNext1.click();
+    }
+
+    async clickChannel(channel: string): Promise<void> {
+        await this.page.locator(`//div[text()='${channel}']`).click();
+        
+    }
+
+    async clickEmptyCheck(): Promise<void> {
+        await this.signUpLocator.emptyCheck.click();
+        
+    }
+
+    async clickNext2(): Promise<void> {
+        await this.signUpLocator.btnNext2.click();
+    }
+
+    async getStarted(): Promise<void> {
+        await this.signUpLocator.getStarted.click();
     }
 }

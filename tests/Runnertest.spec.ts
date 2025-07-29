@@ -6,15 +6,35 @@ import { signupUsers } from '../src/utils/Credentials';
 import { SleepHelper } from '../src/utils/SleepHelper';
 
 test.setTimeout(90_000);
+
 test('Signup handle server error with screenshot & back, always go to logoutPage', async ({ page, signupPage, loginPage, logoutPage }) => {
 
   const wait = new DriverWaitHelper(page);
   await page.goto(UrlHelper.website);
+  
   await loginPage.clickLoginButton();
-  const newPage = await page.context().waitForEvent('page', { timeout: 10_000 });
+  
+  const newPage = await page.context().waitForEvent('page', { timeout: 10000 });
   await newPage.close();
 
   await page.goto(UrlHelper.log_in);
+  
+
+  await signupPage.startSignUp();
+
+  // const user = signupUsers[0];
+  // await signupPage.enterEmail(user.email);
+  // await signupPage.clickSignUp();
+  // await signupPage.enterUsername(user.username);
+  // await signupPage.enterPassword(user.password);
+  // await signupPage.clickSignUp2();
+  // await signupPage.enterFirstName(user.firstName);
+  // await signupPage.enterLastName(user.lastName);
+  // await signupPage.selectPhoneCode('Indonesia');
+  // await signupPage.enterContactNumber(user.phone);
+  // await signupPage.enterCompanyName(user.companyName);
+  // await signupPage.selectCompanySize(user.companySize);
+  // await signupPage.clickCreateNow();
 
   const user = signupUsers[0];
   await signupPage.enterEmail(user.email);
@@ -24,27 +44,24 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   await signupPage.clickSignUp2();
   await signupPage.enterFirstName(user.firstName);
   await signupPage.enterLastName(user.lastName);
-  await signupPage.selectPhoneCode('Indonesia');
-  await signupPage.enterContactNumber(user.phone);
+  await signupPage.enterContactNumber(user.phoneNumber);
   await signupPage.enterCompanyName(user.companyName);
   await signupPage.selectCompanySize(user.companySize);
-  await signupPage.clickCreateNow();
+  await signupPage.clickChannel(user.channel);
+  await signupPage.clickNext2();
+  await signupPage.getStarted();
+  
   await SleepHelper.sleepShort();
 
-let isErrorVisible: boolean = false;
-const errorServerLocator = await signupPage.signUpLocator.ERROR_SERVER.isVisible({ timeout: 6000 });
-if (errorServerLocator) {
-  isErrorVisible = true;
-} else {
-  isErrorVisible = false;
-}
-if (isErrorVisible) {
-  await page.screenshot({ path: 'signup-server-error.png', fullPage: true });
-  await signupPage.clickBack();
-  console.log('🛑 Server error detected, screenshot taken and Back clicked.');
-} else {
-  console.log('✅ No Server Error detected.');
-}
+  // const isErrorVisible = await signupPage.isErrorServerVisible();
+
+  // if (isErrorVisible) {
+  //   await page.screenshot({ path: 'signup-server-error.png', fullPage: true });
+  //   await signupPage.clickBack();
+  //   console.log('🛑 Server error detected, screenshot taken and Back clicked.');
+  // } else {
+  //   console.log('✅ No Server Error detected.');
+  // }
 
   try {
     await logoutPage.logout('Sign out');
@@ -53,10 +70,11 @@ if (isErrorVisible) {
     await page.screenshot({ path: 'error-screenshot.png', fullPage: true });
     throw err;
   }
-  
+
   await loginPage.enterUsername(credentials.login.username);
   await loginPage.enterPassword(credentials.login.password);
   await logoutPage.waitForLoginSuccess();
+
   try {
     await logoutPage.logout('Sign out');
   } catch (err) {
