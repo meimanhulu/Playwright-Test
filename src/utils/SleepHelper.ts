@@ -5,12 +5,12 @@ export class SleepHelper {
   }
 
   static async sleepLong(): Promise<void> {
-    console.log('Sleeping for 5000 ms (5 seconds)...');
-    await new Promise(resolve => setTimeout(resolve, 5000));
+    console.log('Sleeping for 10000 ms (10 seconds)...');
+    await new Promise(resolve => setTimeout(resolve, 10000));
   }
 
   static async sleepShort(): Promise<void> {
-    console.log('Sleeping for 500 ms...');
-    await new Promise(resolve => setTimeout(resolve, 500));
+    console.log('Sleeping for 5000 ms...');
+    await new Promise(resolve => setTimeout(resolve, 5000));
   }
 }

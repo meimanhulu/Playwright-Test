@@ -41,13 +41,12 @@ export class SignUpLocator {
     page: Page,
     value: string = '',
     code: string = '',
-    size: string = '',
-    option: string = '',
+    companySize: string = '',
+    companyIndustry: string = '',
     channel: string = '',
     time: string = '',
     data: string = ''
   ) {
-    // Example only. Uncomment/modify as you need.
     
     this.inputEmail = page.locator('input[name="email"]');
     this.btnsignUp = page.locator('button[name="action"]');
@@ -60,17 +59,17 @@ export class SignUpLocator {
     this.numberField = page.locator('input[id="phoneNumber"]');
     this.companyName = page.locator('input[id="companyName"]');
     this.companyDropDown = page.locator('div[id="companySize"]');
-    this.sizeOption = page.locator(`//div[@id='${size}']`);
+    this.sizeOption = page.locator(`//div[@id='${companySize}']`);
     this.companyIndustry = page.locator('div[id="industry"]');
-    this.industryOption = page.locator(`//span[text()='${option}']`);
+    this.industryOption = page.locator(`//div[@id='${companyIndustry}']`);
     this.fieldTimeZone = page.locator(`//input[contains(@data-gtm-form-interact-field-id, "0") and contains(., '${time}')]`);
     this.btnNext1 = page.locator(`//button[normalize-space(text())="Next"]`);
     this.signUpChannel = page.locator(`//div[text()='${channel}']`);
     this.emptyCheck = page.locator('input[id="isEmpty"]');
     this.btnNext2 = page.locator(`//button[normalize-space(text())="Next"]`);
     this.getStarted = page.locator(`//button[text()='Get started']`);
-
     this.btnStartSignup = page.locator(`//a[text()='Sign up']`);
+
     // this.FIRSTNAME = page.locator('input[name="firstName"]');
     // this.LASTNAME = page.locator('input[name="lastName"]');
     // this.CODEPHONE = page.locator('div[role="button"]');

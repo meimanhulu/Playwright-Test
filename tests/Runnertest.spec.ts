@@ -14,7 +14,8 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   
   await loginPage.clickLoginButton();
   
-  const newPage = await page.context().waitForEvent('page', { timeout: 10000 });
+  const newPage = await page.context().waitForEvent('page');
+  await SleepHelper.sleepShort();
   await newPage.close();
 
   await page.goto(UrlHelper.log_in);
@@ -36,7 +37,7 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   // await signupPage.selectCompanySize(user.companySize);
   // await signupPage.clickCreateNow();
 
-  const user = signupUsers[0];
+  const user = signupUsers[1];
   await signupPage.enterEmail(user.email);
   await signupPage.clickSignUp();
   await signupPage.enterUsername(user.username);
@@ -47,13 +48,16 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   await signupPage.enterContactNumber(user.phoneNumber);
   await signupPage.enterCompanyName(user.companyName);
   await signupPage.selectCompanySize(user.companySize);
+  await signupPage.selectCompanyIndustry(user.companyIndustry);
+  await signupPage.clickNext1();
   await signupPage.clickChannel(user.channel);
   await signupPage.clickChannel(user.channel2);
   await signupPage.clickChannel(user.channel3);
   await signupPage.clickNext2();
   await signupPage.getStarted();
   
-  await SleepHelper.sleepShort();
+  await SleepHelper.sleepLong();
+  await page.screenshot({ path: 'Dashboard.png', fullPage: true });
 
   // const isErrorVisible = await signupPage.isErrorServerVisible();
 

@@ -65,14 +65,14 @@ export class SignUpPage {
         await this.signUpLocator.companyName.fill(companyName);
     }
 
-    async selectCompanySize(data: string): Promise<void> {
+    async selectCompanySize(companySize: string): Promise<void> {
         await this.signUpLocator.companyDropDown.click();
-        await this.page.locator(`//span[text()='${data}']`).click();
+        await this.page.locator(`//div[@id='${companySize}']`).click();
     }
 
-    async selectCompanyIndustry(option: string): Promise<void> {
+    async selectCompanyIndustry(companyIndustry: string): Promise<void> {
         await this.signUpLocator.companyIndustry.click();
-        await this.page.locator(`//span[text()='${option}']`).click();
+        await this.page.locator(`//div[@id='${companyIndustry}']`).click();
     }
 
     async clickNext1(): Promise<void> {
@@ -80,7 +80,7 @@ export class SignUpPage {
     }
 
     async clickChannel(channel: string): Promise<void> {
-        await this.page.locator(`//div[text()='${channel}']`).click();
+       await this.page.locator(`//div[text()='${channel}']`).click();
         
     }
 

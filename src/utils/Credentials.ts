@@ -1,7 +1,7 @@
 export const credentials = {
   login: {
-    username: "meiman02@gmail.com",
-    password: "QaAdidata2020"
+    username: "otaku2@gmail.com",
+    password: "DemoPass456!"
   }
 };
 
@@ -21,13 +21,13 @@ export const signupUsers = [
     channel3: "Line",
   },
   {
-    email: "otomatuk2@gmail.com",
-    username: "demoUser2",
+    email: "otaku2@gmail.com",
+    username: "userDel3",
     password: "DemoPass456!",
     firstName: "Auto",
-    lastName: "Test",
+    lastName: "Testo",
     phoneNumber: "81891283711",
-    companyName: "PT Uji Coba",
+    companyName: "PT Uranium",
     companySize: "20-49",
     companyIndustry: "Skincare & Cosmetics",
     channel: "WeChat",
@@ -35,18 +35,32 @@ export const signupUsers = [
     channel3: "Telegram",
   },
   {
-    email: "otomate12@gmail.com",
-    username: "userdemo1",
+    email: "otomate22@gmail.com",
+    username: "userdemo2",
     password: "DemoPass456!",
     firstName: "Auto",
-    lastName: "Test",
+    lastName: "Testy",
     phoneNumber: "81381236577",
-    companyName: "PT Uji Coba",
-    companySize: "20-49",
+    companyName: "Salt Industry",
+    companySize: "101-500",
     companyIndustry: "Platform Business",
     channel: "WeChat",
     channel2: "Facebook",
     channel3: "Instagram",
+  },
+  {
+    email: "otomate13@gmail.com",
+    username: "usertest2",
+    password: "DemoPass456!",
+    firstName: "Auto",
+    lastName: "Test2",
+    phoneNumber: "81385436565",
+    companyName: "Try Age Company",
+    companySize: "50-499",
+    companyIndustry: "Jewellery",
+    channel: "SMS",
+    channel2: "Line",
+    channel3: "Viber",
   }
 
 ];
