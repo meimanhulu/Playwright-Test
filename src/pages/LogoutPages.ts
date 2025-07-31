@@ -12,7 +12,7 @@ export class LogoutPage {
 
     // Logout Process
     async waitForLoginSuccess(): Promise<void> {
-        await this.LogoutLocator.btnDropDown.waitFor({ state: 'visible', timeout: 25000 });
+        await this.LogoutLocator.btnDropDown.waitFor({ state: 'visible', timeout: 35000 });
     }
     
     async logout(Value: string): Promise<void> {

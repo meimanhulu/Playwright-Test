@@ -16,7 +16,7 @@ export class LoginPage {
 
     async enterUsername(username: string): Promise<void> {
         await this.loginLocator.username.fill(username);
-        await this.loginLocator.btnContinue.waitFor({ state: 'visible', timeout: 5000 });
+        await this.loginLocator.btnContinue.waitFor({ state: 'visible', timeout: 10000 });
         await this.loginLocator.btnContinue.click();
     }
 

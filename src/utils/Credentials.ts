@@ -1,14 +1,14 @@
 export const credentials = {
   login: {
-    username: "otaku2@gmail.com",
-    password: "DemoPass456!"
+    username: "meiman02@gmail.com",
+    password: "QaAdidata2020"
   }
 };
 
 export const signupUsers = [
   {
-    email: "otomatar1@gmail.com",
-    username: "demoUser1",
+    email: "test34@gmail.com",
+    username: "demotest67",
     password: "DemoPass123!",
     firstName: "Sleek",
     lastName: "Flow",
@@ -21,8 +21,8 @@ export const signupUsers = [
     channel3: "Line",
   },
   {
-    email: "otaku2@gmail.com",
-    username: "userDel3",
+    email: "test2@gmail.com",
+    username: "userOtaku2",
     password: "DemoPass456!",
     firstName: "Auto",
     lastName: "Testo",
@@ -35,8 +35,8 @@ export const signupUsers = [
     channel3: "Telegram",
   },
   {
-    email: "otomate22@gmail.com",
-    username: "userdemo2",
+    email: "otomate32@gmail.com",
+    username: "user2as",
     password: "DemoPass456!",
     firstName: "Auto",
     lastName: "Testy",
