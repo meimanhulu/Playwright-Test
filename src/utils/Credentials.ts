@@ -1,7 +1,7 @@
 export const credentials = {
   login: {
-    username: "meiman02@gmail.com",
-    password: "QaAdidata2020"
+    username: "test05@gmail.com",
+    password: "DemoPass456!"
   }
 };
 
@@ -21,8 +21,8 @@ export const signupUsers = [
     channel3: "Line",
   },
   {
-    email: "test2@gmail.com",
-    username: "userOtaku2",
+    email: "test05@gmail.com",
+    username: "userOta03",
     password: "DemoPass456!",
     firstName: "Auto",
     lastName: "Testo",

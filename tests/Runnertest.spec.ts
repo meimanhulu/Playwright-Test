@@ -21,7 +21,7 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   await page.goto(UrlHelper.log_in);
   
 
-  // await signupPage.startSignUp();
+  await signupPage.startSignUp();
 
   // const user = signupUsers[0];
   // await signupPage.enterEmail(user.email);
@@ -37,24 +37,24 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   // await signupPage.selectCompanySize(user.companySize);
   // await signupPage.clickCreateNow();
 
-  // const user = signupUsers[0];
-  // await signupPage.enterEmail(user.email);
-  // await signupPage.clickSignUp();
-  // await signupPage.enterUsername(user.username);
-  // await signupPage.enterPassword(user.password);
-  // await signupPage.clickSignUp2();
-  // await signupPage.enterFirstName(user.firstName);
-  // await signupPage.enterLastName(user.lastName);
-  // await signupPage.enterContactNumber(user.phoneNumber);
-  // await signupPage.enterCompanyName(user.companyName);
-  // await signupPage.selectCompanySize(user.companySize);
-  // await signupPage.selectCompanyIndustry(user.companyIndustry);
-  // await signupPage.clickNext1();
-  // await signupPage.clickChannel(user.channel);
-  // await signupPage.clickChannel(user.channel2);
-  // await signupPage.clickChannel(user.channel3);
-  // await signupPage.clickNext2();
-  // await signupPage.getStarted();
+  const user = signupUsers[1];
+  await signupPage.enterEmail(user.email);
+  await signupPage.clickSignUp();
+  await signupPage.enterUsername(user.username);
+  await signupPage.enterPassword(user.password);
+  await signupPage.clickSignUp2();
+  await signupPage.enterFirstName(user.firstName);
+  await signupPage.enterLastName(user.lastName);
+  await signupPage.enterContactNumber(user.phoneNumber);
+  await signupPage.enterCompanyName(user.companyName);
+  await signupPage.selectCompanySize(user.companySize);
+  await signupPage.selectCompanyIndustry(user.companyIndustry);
+  await signupPage.clickNext1();
+  await signupPage.clickChannel(user.channel);
+  await signupPage.clickChannel(user.channel2);
+  await signupPage.clickChannel(user.channel3);
+  await signupPage.clickNext2();
+  await signupPage.getStarted();
   
   // await SleepHelper.sleepLong();
   // await page.screenshot({ path: 'Dashboard.png', fullPage: true });
@@ -69,13 +69,13 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   //   console.log('✅ No Server Error detected.');
   // }
 
-  // try {
-  //   await logoutPage.logout('Sign out');
-  // } catch (err) {
-  //   console.error('Logout failed:', err);
-  //   await page.screenshot({ path: 'error-screenshot.png', fullPage: true });
-  //   throw err;
-  // }
+  try {
+    await logoutPage.logout('Sign out');
+  } catch (err) {
+    console.error('Logout failed:', err);
+    await page.screenshot({ path: 'error-screenshot.png', fullPage: true });
+    throw err;
+  }
 
   await loginPage.enterUsername(credentials.login.username);
   await loginPage.enterPassword(credentials.login.password);
