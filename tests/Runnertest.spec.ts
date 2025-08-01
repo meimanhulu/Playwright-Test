@@ -54,10 +54,11 @@ test('Signup handle server error with screenshot & back, always go to logoutPage
   await signupPage.clickChannel(user.channel2);
   await signupPage.clickChannel(user.channel3);
   await signupPage.clickNext2();
+  await SleepHelper.sleepShort();
   await signupPage.getStarted();
-  
-  // await SleepHelper.sleepLong();
-  // await page.screenshot({ path: 'Dashboard.png', fullPage: true });
+  await SleepHelper.sleepLong();
+
+  await page.screenshot({ path: 'Dashboard.png', fullPage: true });
 
   // const isErrorVisible = await signupPage.isErrorServerVisible();
 

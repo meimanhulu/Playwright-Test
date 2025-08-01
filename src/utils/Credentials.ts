@@ -1,6 +1,6 @@
 export const credentials = {
   login: {
-    username: "test05@gmail.com",
+    username: "test06@gmail.com",
     password: "DemoPass456!"
   }
 };
@@ -21,8 +21,8 @@ export const signupUsers = [
     channel3: "Line",
   },
   {
-    email: "test05@gmail.com",
-    username: "userOta03",
+    email: "test06@gmail.com",
+    username: "userOta04",
     password: "DemoPass456!",
     firstName: "Auto",
     lastName: "Testo",
